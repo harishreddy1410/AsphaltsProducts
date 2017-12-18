@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsphaltsProducts.Presentation.Layer", "AsphaltsProducts\AsphaltsProducts.Presentation.Layer.csproj", "{B2267AA2-764E-4739-8EAC-ACBAA59B6CE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsphaltsProducts.Presentation.Layer", "AsphaltsProducts\AsphaltsProducts.Presentation.Layer.csproj", "{B2267AA2-764E-4739-8EAC-ACBAA59B6CE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsphaltsProducts.Service.Layer", "AsphaltsProducts.Service.Layer\AsphaltsProducts.Service.Layer.csproj", "{75F84747-F22E-4485-BF1B-F38FE73CDB39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsphaltsProducts.Service.Layer", "AsphaltsProducts.Service.Layer\AsphaltsProducts.Service.Layer.csproj", "{75F84747-F22E-4485-BF1B-F38FE73CDB39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsphaltsProducts.Domain", "AsphaltsProducts.Domain\AsphaltsProducts.Domain.csproj", "{D65473F5-C5ED-4018-A0A0-FBBC163D2B56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsphaltsProducts.Domain", "AsphaltsProducts.Domain\AsphaltsProducts.Domain.csproj", "{D65473F5-C5ED-4018-A0A0-FBBC163D2B56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsphaltsProducts.BackgroundJobs", "AsphaltsProducts.BackgroundJobs\AsphaltsProducts.BackgroundJobs.csproj", "{6FE1104C-32DE-431C-ADA8-837BDA05CA3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsphaltsProducts.BackgroundJobs", "AsphaltsProducts.BackgroundJobs\AsphaltsProducts.BackgroundJobs.csproj", "{6FE1104C-32DE-431C-ADA8-837BDA05CA3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsphaltsProducts.Infrastructure", "AsphaltsProducts.Infrastructure\AsphaltsProducts.Infrastructure.csproj", "{D606CE62-1F53-45BD-93BC-97A728DDD3CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6FE1104C-32DE-431C-ADA8-837BDA05CA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FE1104C-32DE-431C-ADA8-837BDA05CA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FE1104C-32DE-431C-ADA8-837BDA05CA3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D606CE62-1F53-45BD-93BC-97A728DDD3CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D606CE62-1F53-45BD-93BC-97A728DDD3CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D606CE62-1F53-45BD-93BC-97A728DDD3CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D606CE62-1F53-45BD-93BC-97A728DDD3CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

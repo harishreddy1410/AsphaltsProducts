@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -13,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AsphaltsProducts.Infrastructure\AsphaltsProducts.Infrastructure.csproj" />
     <ProjectReference Include="..\AsphaltsProducts.Service.Layer\AsphaltsProducts.Service.Layer.csproj" />
   </ItemGroup>
 
