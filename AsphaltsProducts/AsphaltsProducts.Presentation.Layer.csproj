@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\customcss\style.less" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AsphaltsProducts.Infrastructure\AsphaltsProducts.Infrastructure.csproj" />
     <ProjectReference Include="..\AsphaltsProducts.Service.Layer\AsphaltsProducts.Service.Layer.csproj" />
   </ItemGroup>
