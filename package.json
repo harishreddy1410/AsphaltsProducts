@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
     "gulp-less": "^3.3.2",
     "less": "^2.7.3"
   },
