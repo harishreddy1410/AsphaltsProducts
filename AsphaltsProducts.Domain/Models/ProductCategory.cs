@@ -6,10 +6,10 @@ namespace AsphaltsProducts.Domain.Models.ECommerce
     public class ProductCategory
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Int16 Id { get; set; }
+        public int Id { get; set; }
         public ProductCategoryNames Category { get; set; }
 
-        //[InverseProperty("Id")]
+        [InverseProperty("CategoryId")]
         public List<Product> ProductList { get; set; }
     }
 

@@ -7,6 +7,7 @@
   <ItemGroup>
     <Compile Remove="Migrations\20171218051412_added Identity and user models.cs" />
     <Compile Remove="Migrations\20171218053444_added Identity and user models.cs" />
+    <Compile Remove="Migrations\20171224102348_adding product and category table.cs" />
   </ItemGroup>
 
   <ItemGroup>

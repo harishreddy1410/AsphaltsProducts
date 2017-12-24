@@ -12,9 +12,10 @@ using System;
 namespace AsphaltsProducts.Infrastructure.Migrations
 {
     [DbContext(typeof(AsphaltsDbContext))]
-    partial class AsphaltsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171224104731_adding product and category table")]
+    partial class addingproductandcategorytable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
