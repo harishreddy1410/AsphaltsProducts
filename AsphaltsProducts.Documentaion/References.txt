@@ -1,0 +1,2 @@
+/*  hosting a static website in azure  */
+https://www.microsoft.com/middleeast/azureboxes/could-hosting-for-a-static-website.aspx

@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AsphaltsProducts.Domain\AsphaltsProducts.Domain.csproj" />
+    <ProjectReference Include="..\AsphaltsProducts.Infrastructure\AsphaltsProducts.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

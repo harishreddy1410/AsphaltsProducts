@@ -4,12 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using AsphaltsProducts.Domain.Models;
 using AsphaltsProducts.Infrastructure.Contexts;
+using AsphaltsProducts.Service.Layer.ECommerce.ProductsService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AutoMapper;
+using AsphaltsProducts.Presentation.Layer.App_Start;
 
 namespace AsphaltsProducts
 {
@@ -30,6 +33,18 @@ namespace AsphaltsProducts
             services.AddIdentity<ApplicationUser, ApplicationUserRole>()
                 .AddEntityFrameworkStores<AsphaltsDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddScoped<IAsphaltsDbContext, AsphaltsDbContext>();
+            services.AddScoped<IProductService, ProductService>();
+            var config = new MapperConfiguration(c => {
+                c.AddProfile<AutoMapperConfig>();
+                c.ValidateInlineMaps = false;
+            });
+            services.AddSingleton<IMapper>(s => config.CreateMapper());
+
+            //AutoMapper.Mapper.Initialize(cfg => cfg.AddProfile<AutoMapperConfig>());
+            //services.AddAutoMapper();
+            
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings
@@ -59,7 +74,7 @@ namespace AsphaltsProducts
                 options.AccessDeniedPath = "/Account/AccessDenied"; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
                 options.SlidingExpiration = true;
             });
-
+     
             services.AddMvc();
         }
 
@@ -77,12 +92,12 @@ namespace AsphaltsProducts
             }
 
             app.UseStaticFiles();
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Shop}/{action=Index}/{id?}");
             });
         }
     }
