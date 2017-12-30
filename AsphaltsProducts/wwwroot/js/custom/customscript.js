@@ -46,5 +46,9 @@ function DaysInMonth(date2_UTC) {
     return monthLength;
 }
 
-if ($('.years-of-exp').length > 0)
-    $('.years-of-exp').text(getAge(new Date(2015, 1, 2), new Date()))
+function CalculateMyExperience() {
+    if ($('.years-of-exp').length > 0) {
+        $('.years-of-exp').text(getAge(new Date(2015, 1, 2), new Date()));
+    }
+}
+window.onload = CalculateMyExperience()
