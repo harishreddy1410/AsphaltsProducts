@@ -51,4 +51,19 @@ function CalculateMyExperience() {
         $('.years-of-exp').text(getAge(new Date(2015, 1, 2), new Date()));
     }
 }
-window.onload = CalculateMyExperience()
+
+function HideLoadingIcon() {
+    $('.loader').hide();
+}
+function ShowLoadingIcon() {
+    $('.loader').show();
+}
+window.onload = CalculateMyExperience();
+window.onloadstart = ShowLoadingIcon();
+
+$(document).ready(function () {
+    $(window).bind('beforeunload', function () {
+        ShowLoadingIcon();
+    });
+})
+

@@ -19,6 +19,25 @@
     </environment>
 </head>
 <body>
+    <style>
+        .loader {
+            position: absolute;
+            margin: 0 auto;
+            right: 0;
+            left: 0;
+            top: 0;
+            vertical-align: middle;
+            bottom: 0;
+            text-align: center;
+            z-index: 100000;
+            background-color: rgba(217, 26, 26,0.9);
+            background-color: rgb(217, 26, 26);
+        }
+    </style>
+    <div class="loader">
+        <img src="~/images/page-loader.svg" />
+    </div>
+    
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -71,9 +90,11 @@
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
-        
-    </environment>
 
+    </environment>
+    <script>
+        HideLoadingIcon();
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
