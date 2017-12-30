@@ -41,5 +41,5 @@ gulp.watch('wwwroot/css/customcss/*.less', () => {
 
 
 gulp.task('default', ['less'], function () {
-    gulp.watch('*.less', ['less']);
+    //gulp.watch('*.less', ['less']);
 })

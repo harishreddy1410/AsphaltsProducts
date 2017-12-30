@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+   
+</style>
+<div>
+    <fieldset>
+        <legend>About developer</legend>
+        <img src="~/images/harish.JPG" class="img-rounded center-block profile-img" />
+        <article>
+            <section>
+              <p>Myself <b>Harish Reddy M</b> Working as <b>Software develper</b> since  Jan 2015.
+                started my career in software devleopment after graduating from MVJ College of engineering, Bangalore with the four years of UG course in biotechnology engineering.</p>
+                <br />
+                <p>Current work experience starting from Jan 2015 : <b class="years-of-exp"></b></p>
+                <br />
+               <p>I joined <a href="http://www.retail2customer.com/">Retail2Customer business consulting</a> as software intern where I worked with a team of excellent people for four month. 
+                Then joined <a>Liventus technology services private limited</a> on June 01, 2015, as associate software developer and started working on 
+                challenging problems to find solutions to those problem, hence making my self stronger and stronger in my skills. 
+                </p>
+                I found more interested in software engineering and also I found that I am good in it :), so I took a decision to build my
+                career in software development and am doing good in it.
+            </section>
+        </article>
+        <article>
+            <section>
+                <a class="btn btn-success" href="https://in.linkedin.com/in/hreddy0808">Find me on LinkenIn</a>
+            </section>
+        </article>
+    </fieldset>
+    <h2></h2>
+    
+</div>
+<script>
+    function getAge(date_1, date_2)
+{
+
+//convert to UTC
+var date2_UTC = new Date(Date.UTC(date_2.getUTCFullYear(), date_2.getUTCMonth(), date_2.getUTCDate()));
+var date1_UTC = new Date(Date.UTC(date_1.getUTCFullYear(), date_1.getUTCMonth(), date_1.getUTCDate()));
+
+
+var yAppendix, mAppendix, dAppendix;
+
+
+//--------------------------------------------------------------
+var days = date2_UTC.getDate() - date1_UTC.getDate();
+if (days < 0)
+{
+
+    date2_UTC.setMonth(date2_UTC.getMonth() - 1);
+    days += DaysInMonth(date2_UTC);
+}
+//--------------------------------------------------------------
+var months = date2_UTC.getMonth() - date1_UTC.getMonth();
+if (months < 0)
+{
+    date2_UTC.setFullYear(date2_UTC.getFullYear() - 1);
+    months += 12;
+}
+//--------------------------------------------------------------
+var years = date2_UTC.getFullYear() - date1_UTC.getFullYear();
+
+
+
+
+if (years > 1) yAppendix = " years";
+else yAppendix = " year";
+if (months > 1) mAppendix = " months";
+else mAppendix = " month";
+if (days > 1) dAppendix = " days";
+else dAppendix = " day";
+
+
+return years + yAppendix + ", " + months + mAppendix + ", and " + days + dAppendix + ".";
+}
+
+
+function DaysInMonth(date2_UTC)
+{
+var monthStart = new Date(date2_UTC.getFullYear(), date2_UTC.getMonth(), 1);
+var monthEnd = new Date(date2_UTC.getFullYear(), date2_UTC.getMonth() + 1, 1);
+var monthLength = (monthEnd - monthStart) / (1000 * 60 * 60 * 24);
+return monthLength;
+}
+
+
+    $('.years-of-exp').text(getAge(new Date(2015, 1, 2), new Date()))
+ 
+</script>
