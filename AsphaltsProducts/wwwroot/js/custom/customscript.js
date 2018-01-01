@@ -58,12 +58,52 @@ function HideLoadingIcon() {
 function ShowLoadingIcon() {
     $('.loader').show();
 }
-window.onload = CalculateMyExperience();
-window.onloadstart = ShowLoadingIcon();
+
+function LoadFewProducts() {
+
+    jQuery.getJSON("/json/products.json?ff=jk1120", function (homePageProducts) {
+        var products = homePageProducts.products;
+        if (jQuery('#itemTemplate').length > 0) {
+            
+            $.each(products, function (index, value) {
+                var html = jQuery('#itemTemplate').html();
+
+                html = html
+                    .replace('##PRODUCTNAME##', value.productName)
+                    .replace('##PRODUCTRATING##', value.productRating)
+                    .replace('##ACTUALPRICE##', value.retailPrice)
+                    .replace('##OFFERPRICE##', value.discountedPrice)
+                    .replace('##CAROUSELNAME##', value.id);
+                
+                //populate slider indicators 
+                var indicator = jQuery(html).find('ol.carousel-indicators');
+                var carouselInner = jQuery(html).find('.carousel-inner');
+                var images = JSON.parse(homePageProducts.products[index].productImage);
+                for (i = 0; i < images.length; i++) {
+                    jQuery(indicator).append(jQuery('<li data-target="#' + value.id + '" data-slide-to="' + i + '" ></li>'))
+                    jQuery(carouselInner).append(jQuery('<div class="item"><img class="img-responsive img-rounded" src= "' + images[i] + '" /></div >'));
+                                        
+                }
+
+                jQuery(indicator).find('li').first().addClass('active');
+                jQuery(carouselInner).find('div.item').first().addClass('active');
+
+                html = html.replace('##INDICATORS##', $(indicator).html().replace('##INDICATORS##', ''))
+                    .replace('##CAROUSELIMAGES##', $(carouselInner).html().replace('##CAROUSELIMAGES##', ''));
+                                
+                jQuery('#products').append(html)
+            });
+        }
+        
+    });
+}
 
 $(document).ready(function () {
-    $(window).bind('beforeunload', function () {
+    jQuery(window).bind('beforeunload', function () {
         ShowLoadingIcon();
     });
-})
+    
+});
 
+window.onload = CalculateMyExperience(), LoadFewProducts();
+window.onloadstart = ShowLoadingIcon();

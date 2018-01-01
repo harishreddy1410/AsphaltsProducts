@@ -20,7 +20,7 @@ namespace AsphaltsProducts.Service.Layer.ECommerce.ProductsService
         }
         public List<ProductDto> GetProductsForDashboard()
         {
-           return _mapper.Map<List<ProductDto>>(_asphaltsDbContext.Products.Take(5).ToList());
+           return _mapper.Map<List<ProductDto>>(_asphaltsDbContext.Products.Take(30).ToList());
         }
     }
 }

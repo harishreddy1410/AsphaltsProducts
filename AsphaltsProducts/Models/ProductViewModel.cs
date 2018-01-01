@@ -7,7 +7,7 @@ namespace AsphaltsProducts.Presentation.Layer.Models
 {
     public class ProductViewModel
     {
-        //public int Id { get; set; }
+        public int Id { get; set; }
         public string ProductUrl { get; set; }
         public string ProductName { get; set; }
         //public string product_category_tree { get; set; }        
