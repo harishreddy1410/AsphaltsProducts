@@ -76,6 +76,7 @@ function LoadFewProducts() {
                     .replace('##OFFERPRICE##', value.discountedPrice)
                     .replace('##CAROUSELNAME##', value.id)
                     .replace('##CAROUSELNAME##', value.id)
+                    .replace('##CAROUSELNAME##', value.id)
                     .replace('##CAROUSELNAME##', value.id);
                 
                 //populate slider indicators 
@@ -101,6 +102,41 @@ function LoadFewProducts() {
     });
 }
 
+function AddToCart(productId) {
+    if (Storage != "undefined") {        
+        if (localStorage.getItem("cart-item-" + productId)) {
+            alert('this product is already in your cart');
+            return false;
+        } else {
+            localStorage.setItem("cart-item-" + productId, productId);
+        }
+        var noOfCartItems = 0;
+        noOfCartItems = CartItemsCount();
+                
+        if (noOfCartItems > 0) {
+            $('.cart-items-count').html(noOfCartItems);
+            $('.cart-items-count').show();
+        };
+    } 
+}
+
+function CartItemsCount() {
+    var noOfCartItems = 0;
+    Object.keys(window.localStorage).filter(function (keyname) {
+        if (keyname.toString().indexOf('cart-item') > -1); {
+            noOfCartItems += 1;
+        }
+    });
+    return noOfCartItems;
+}
+function ShowNumberOfCartItemsAdded() {
+    var itemsCount = CartItemsCount();
+    if (itemsCount > 0) {
+        $('.cart-items-count').html(itemsCount);
+        $('.cart-items-count').show();
+    }
+
+}
 $(document).ready(function () {
     jQuery(window).bind('beforeunload', function () {
         ShowLoadingIcon();
@@ -108,5 +144,5 @@ $(document).ready(function () {
     
 });
 
-window.onload = CalculateMyExperience(), LoadFewProducts();
+window.onload = ShowNumberOfCartItemsAdded(),CalculateMyExperience(), LoadFewProducts();
 window.onloadstart = ShowLoadingIcon();
