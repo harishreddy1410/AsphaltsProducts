@@ -60,8 +60,6 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
-
 <div id="products">
 
 </div>
@@ -69,7 +67,7 @@
     <div class="item-container">
         <div class="panel panel-default">
             <div class="panel-heading font-bold">##PRODUCTNAME##</div>
-            <div class="panel-body no-padding">
+            <div class="panel-body no-padding">                
                 <div id="##CAROUSELNAME##" class="carousel" data-ride="carousel">
                     <ol class="carousel-indicators">
                         ##INDICATORS##
@@ -97,7 +95,27 @@
                     <span>Offer price </span>:<del>##ACTUALPRICE##</del>  <b>##OFFERPRICE##</b>
                 </span>
             </div>
-            <div class="panel-footer text-center"><a class="btn btn-success" onclick="$('div.test').modal('show')">Know more</a></div>
+            <div class="panel-footer text-center table-responsive">
+                
+                <div class="row">
+                    <div class="col-lg-4 no-padding">
+                        <span class="add-to-cart">
+                            <span class="glyphicon glyphicon-heart"></span> add to cart
+                        </span>
+                    </div>
+                    <div class="col-lg-4 no-padding">
+                        <span class="" onclick="$('div.test').modal('show')">
+                            <span class="glyphicon glyphicon-modal-window"></span>
+                            Details
+                        </span>
+                    </div>
+                    <div class="col-lg-4 no-padding">
+                        <span class="text-left float-right">
+                            buy now <span class="glyphicon glyphicon-shopping-cart"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
