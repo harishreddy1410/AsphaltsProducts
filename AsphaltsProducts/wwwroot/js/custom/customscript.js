@@ -70,9 +70,12 @@ function LoadFewProducts() {
 
                 html = html
                     .replace('##PRODUCTNAME##', value.productName)
+                    .replace('##PRODUCTNAME##', value.productName)
                     .replace('##PRODUCTRATING##', value.productRating)
                     .replace('##ACTUALPRICE##', value.retailPrice)
                     .replace('##OFFERPRICE##', value.discountedPrice)
+                    .replace('##CAROUSELNAME##', value.id)
+                    .replace('##CAROUSELNAME##', value.id)
                     .replace('##CAROUSELNAME##', value.id);
                 
                 //populate slider indicators 
