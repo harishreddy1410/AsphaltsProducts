@@ -37,7 +37,7 @@
     </style>
     <div class="loader">
         <img src="~/images/page-loader.svg" />
-    </div>
+    </div>   
     
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -59,19 +59,25 @@
                 <div class="float-right">
                     <ul class="navbar navbar-nav cart-menu">
                         <li>
-                          <h2><span class="glyphicon glyphicon-shopping-cart"></span></h2>
+                            <h2><span class="glyphicon glyphicon-shopping-cart"></span></h2>
                             <span class="cart-items-count">0</span>
                         </li>
                     </ul>
                 </div>
-            </div>            
+            </div>
             <div class="navbar">
                 <input class="form-control" type="text" placeholder="search for your product of interest" />
                 <span class="glyphicon glyphicon-search search-icon"></span>
             </div>
+            <!--used to show alert message to user actions-->
+            <div class="notify alert alert-success alert-dismissable fade in" style="display:none;">
+                <span class="notification-message">Message</span><a class="close" data-dismiss="alert">&times;</a>
+            </div>
         </div>
     </nav>
     <div class="container body-content">
+        @await Component.InvokeAsync("GreetComponent")
+        
         @RenderBody()
         <hr />
         <footer>
