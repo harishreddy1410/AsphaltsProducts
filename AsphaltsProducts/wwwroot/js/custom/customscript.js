@@ -110,21 +110,32 @@ function LoadFewProducts() {
 //Global variable used to show notification message 
 var duplicateItem = false;
 //Function will add items to cart
-function AddToCart(productId, e) {
-    if (Storage != "undefined") {        
-        if (localStorage.getItem("cart-item-" + productId)) {
-            //alert('this product is already in your cart');
-            debugger
-            $('.notification-message').text('this product is already in your cart')
-            $('.alert-success').slideDown().delay(3000).slideUp();
+function AddToCart(item, e) {    
+    if (Storage != "undefined") { 
+        var selectedProduct = {
+            'ProductName': $(item).parents('.item-container').find('.panel-heading').html(),
+            'ProductId': $(item).parents('.item-container').find('.carousel').attr('id')
+        }
+        AddedCartItems(selectedProduct);   
+        var productId = $(item).parents('.item-container').find('.carousel').attr('id')
 
+        if (localStorage.getItem("cart-item-" + productId)) {
+            //alert('this product is already in your cart');            
+            $('.notification-message').text('this product is removed from your cart')
+            $('.alert-success').stop().slideDown().delay(3000).slideUp();
+            $('[data-productid=' + productId + ']').removeClass('added');
+            $('[data-productid=' + productId + ']').find('.cart-text').text('add to cart');
+            localStorage.removeItem("cart-item-" + productId)
             duplicateItem = true;
             //StopPrpagation();
             return false;
         } else {
             duplicateItem = false;
-            localStorage.setItem("cart-item-" + productId, productId);
+            localStorage.setItem("cart-item-" + productId, productId);    
+            $('[data-productid=' + productId + ']').addClass('added');
+            $('[data-productid=' + productId + ']').find('.cart-text').text('In cart');
         }
+        
         var noOfCartItems = 0;
         noOfCartItems = CartItemsCount();
                 
@@ -171,8 +182,39 @@ function StopPrpagation(e) {
     }
 }
 
-window.onload = ShowNumberOfCartItemsAdded(), CalculateMyExperience(), LoadFewProducts();
+
+function GetCartItems() {
+    $.getJSON('cart/GetCartItems').success(function (itemsIncart) {
+
+        
+        $.each(itemsIncart.cartItems, function (i, v) {
+        
+            console.log(v.productId);
+            $('[data-productid=' + v.productId + ']').addClass('added');
+            $('[data-productid=' + v.productId + ']').find('.cart-text').text('In cart');
+        })
+    })
+        .error(function (err) { alert('get json dint worked'); })
+}
+
+
+window.onload = ShowNumberOfCartItemsAdded(), CalculateMyExperience(), LoadFewProducts(), GetCartItems();
 window.onloadstart = ShowLoadingIcon();
+
+//Track items added to cart by client 
+function AddedCartItems(product) {
+    $.ajax({
+        url: 'cart/ToggleCartSelection',
+        data: product,
+        success: function (res) {
+            console.log( res);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
+}
+
 
 jQuery(document).ready(function () {
     jQuery(window).bind('beforeunload', function () {
@@ -181,7 +223,7 @@ jQuery(document).ready(function () {
     jQuery("body").on('click', '*[data-message]', function (target) {
         if (!duplicateItem) {
             $('.notification-message').text('product is added to your cart')
-            $('.alert-success').slideDown().delay(3000).slideUp();
+            $('.alert-success').stop().slideDown().delay(3000).slideUp();
         }
     });
    

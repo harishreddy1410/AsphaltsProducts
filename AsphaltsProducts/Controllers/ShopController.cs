@@ -6,6 +6,8 @@ using AsphaltsProducts.Service.Layer.ECommerce.ProductsService;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using AsphaltsProducts.Presentation.Layer.Models;
+using AsphaltsProducts.Presentation.Layer.Helpers.Session;
+using AsphaltsProducts.Presentation.Layer.Helpers.ComplexObjects;
 
 namespace AsphaltsProducts.Presentation.Layer.Controllers
 {
@@ -13,14 +15,18 @@ namespace AsphaltsProducts.Presentation.Layer.Controllers
     {
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
-        public ShopController(IProductService productService, IMapper mapper)
+        private readonly ISessionFactory _session;
+        public ShopController(IProductService productService, IMapper mapper, ISessionFactory session)
         {
             _mapper = mapper;
             _productService = productService;
+            _session = session;
         }
         public IActionResult Index()
         {
             return Json(_mapper.Map<IList<ProductViewModel>>(_productService.GetProductsForDashboard()));
         }
+
+        
     }
 }

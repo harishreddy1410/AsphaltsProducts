@@ -17,6 +17,7 @@ namespace AsphaltsProducts.Presentation.Layer.Helpers.Session
     public enum SessionKey
     {
         SESSION_ID,
-        SESSION_OBJ
+        SESSION_OBJ,
+        CART_ITEMS
     }
 }

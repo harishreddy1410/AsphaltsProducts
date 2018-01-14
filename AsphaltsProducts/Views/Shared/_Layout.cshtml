@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AsphaltsProducts</title>
-
+    <base href="/" />
     <environment>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -59,8 +59,10 @@
                 <div class="float-right">
                     <ul class="navbar navbar-nav cart-menu">
                         <li>
-                            <h2><span class="glyphicon glyphicon-shopping-cart"></span></h2>
-                            <span class="cart-items-count">0</span>
+                            <a href="/cart">
+                                <h2><span class="glyphicon glyphicon-shopping-cart"></span></h2>
+                                <span class="cart-items-count">0</span>
+                            </a>
                         </li>
                     </ul>
                 </div>

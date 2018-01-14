@@ -26,7 +26,6 @@ namespace AsphaltsProducts.Controllers
             }
             catch (Exception ex)
             {
-
                 throw;
             }           
         }

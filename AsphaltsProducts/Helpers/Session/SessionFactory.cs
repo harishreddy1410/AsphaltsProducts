@@ -33,7 +33,10 @@ namespace AsphaltsProducts.Presentation.Layer.Helpers.Session
         }
         public T Get<T>(SessionKey sessionKey)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(_httpContextAccessor.HttpContext.Session.GetString(sessionKey.ToString()));
+            var value = _httpContextAccessor.HttpContext.Session.GetString(sessionKey.ToString());
+            if(value != null)
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(_httpContextAccessor.HttpContext.Session.GetString(sessionKey.ToString()));
+            return default(T);
         }
 
         public void RemoveSesssion(SessionKey sessionKey)
