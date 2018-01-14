@@ -5,14 +5,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AsphaltsProducts.Models;
+using AsphaltsProducts.Presentation.Layer.Helpers.Session;
 
 namespace AsphaltsProducts.Controllers
 {
     public class HomeController : Controller
     {
+        ISessionFactory _sessionFactory;
+        public HomeController(ISessionFactory sessionFactory)
+        {
+            _sessionFactory = sessionFactory;
+        }
         public IActionResult Index()
         {
-            return View();
+            try
+            {
+                _sessionFactory.Set<string>(SessionKey.SESSION_ID, "Bingo");
+                var test = _sessionFactory.Get<string>(SessionKey.SESSION_ID);
+                return View();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }           
         }
 
         public IActionResult About()
@@ -29,8 +45,8 @@ namespace AsphaltsProducts.Controllers
         }
 
         public IActionResult Error()
-        {
+        {            
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        }        
     }
 }

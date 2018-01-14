@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using AutoMapper;
 using AsphaltsProducts.Presentation.Layer.App_Start;
+using AsphaltsProducts.Presentation.Layer.Helpers.Session;
 
 namespace AsphaltsProducts
 {
@@ -36,6 +37,7 @@ namespace AsphaltsProducts
 
             services.AddScoped<IAsphaltsDbContext, AsphaltsDbContext>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddTransient<ISessionFactory,SessionFactory>();
             var config = new MapperConfiguration(c => {
                 c.AddProfile<AutoMapperConfig>();
                 c.ValidateInlineMaps = false;
@@ -74,8 +76,8 @@ namespace AsphaltsProducts
                 options.AccessDeniedPath = "/Account/AccessDenied"; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
                 options.SlidingExpiration = true;
             });
-     
-            services.AddMvc();
+            services.AddSession();
+            services.AddMvc();            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -90,7 +92,10 @@ namespace AsphaltsProducts
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            app.UseSession(new SessionOptions()
+            {
+                IdleTimeout = TimeSpan.FromDays(1)
+            });
             app.UseStaticFiles();
             
             app.UseMvc(routes =>
