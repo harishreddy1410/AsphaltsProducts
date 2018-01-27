@@ -2,7 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <ApplicationIcon />
+    <Win32Resource />
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\AsphaltsProductsPresentationLayer20180126094910 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\ecom-app - Web Deploy.pubxml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />
@@ -30,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Shop\" />
   </ItemGroup>
 
