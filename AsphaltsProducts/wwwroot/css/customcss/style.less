@@ -1,6 +1,7 @@
 @colorWhite : white;
 @colorCrimson: #de0a32 ;
 @colorYellow:yellow;
+@colorOrange:pink;
 body {
     background: @colorCrimson !important;
     color: @colorWhite !important;
@@ -13,7 +14,14 @@ body {
     font-family: 'Open Sans', sans-serif;
     border:none;
 }
+.navbar li a, .navbar-brand,.navbar .glyphicon-shopping-cart {
+    font-weight: bold !important;
+    color: white !important;
 
+    &:hover {
+        color: @colorOrange !important;
+    }
+}
 legend {
     color: @colorWhite;
 }
@@ -138,6 +146,7 @@ legend {
 .cart-menu {
     line-height: 50px;
     list-style-type: none;
+    margin-bottom:0;
 }
 
 .cart-items-count {

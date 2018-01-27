@@ -7,13 +7,15 @@
     <base href="/" />
     <environment>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="~/css/site.css" />
+        @*<link rel="stylesheet" href="~/css/site.css" />*@
+
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         @*<link href="~/css/customcss/style.css?cacheBuster=@Guid.NewGuid()" rel="stylesheet" />*@
         <link href="https://res.cloudinary.com/harishscdn/raw/upload/v1517038331/ecom-app/style.css" rel="stylesheet" />
         <link rel="shortcut icon" href="http://res.cloudinary.com/harishscdn/image/upload/v1517039748/ecom-app/favicon.ico" />
+        <link href="https://res.cloudinary.com/harishscdn/raw/upload/v1517074760/ecom-app/style.css" rel="stylesheet" />
     </environment>
     
 </head>
@@ -55,7 +57,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
                 <div class="float-right">
-                    <ul class="navbar navbar-nav cart-menu">
+                    <ul class="navbar cart-menu">
                         <li>
                             <a href="/cart">
                                 <h2><span class="glyphicon glyphicon-shopping-cart"></span></h2>
