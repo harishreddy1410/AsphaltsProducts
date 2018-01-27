@@ -22,6 +22,7 @@ namespace AsphaltsProducts.Presentation.Layer.Controllers
             _productService = productService;
             _session = session;
         }
+        [ResponseCache(Duration = int.MaxValue,Location = ResponseCacheLocation.Any)]
         public IActionResult Index()
         {
             return Json(_mapper.Map<IList<ProductViewModel>>(_productService.GetProductsForDashboard()));

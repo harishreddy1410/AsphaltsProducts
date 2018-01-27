@@ -1,4 +1,9 @@
-﻿function getAge(date_1, date_2) {
+﻿ jQuery (document).ready(function () {
+    $.ajaxSetup({ cache: false });
+});
+
+
+function getAge(date_1, date_2) {
 
     //convert to UTC
     var date2_UTC = new Date(Date.UTC(date_2.getUTCFullYear(), date_2.getUTCMonth(), date_2.getUTCDate()));
@@ -65,8 +70,8 @@ function ShowLoadingIcon() {
 
 //Function used to populate few products in homepage
 function LoadFewProducts() {
-
-    jQuery.getJSON("/json/products.json?ff=jk1120", function (homePageProducts) {
+       
+    jQuery.getJSON("https://res.cloudinary.com/harishscdn/raw/upload/v1517035755/ecom-app/products.json", function (homePageProducts) {
         var products = homePageProducts.products;
         if (jQuery('#itemTemplate').length > 0) {
             
