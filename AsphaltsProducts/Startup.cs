@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using AutoMapper;
 using AsphaltsProducts.Presentation.Layer.App_Start;
 using AsphaltsProducts.Presentation.Layer.Helpers.Session;
+using AsphaltsProducts.Service.Layer;
 
 namespace AsphaltsProducts
 {
@@ -38,6 +39,7 @@ namespace AsphaltsProducts
             services.AddScoped<IAsphaltsDbContext, AsphaltsDbContext>();
             services.AddScoped<IProductService, ProductService>();
             services.AddTransient<ISessionFactory,SessionFactory>();
+            services.AddTransient<IEmailService, EmailService>();
             var config = new MapperConfiguration(c => {
                 c.AddProfile<AutoMapperConfig>();
                 c.ValidateInlineMaps = false;
