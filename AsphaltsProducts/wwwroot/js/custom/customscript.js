@@ -358,10 +358,10 @@ jQuery(document).ready(function () {
                 type: 'POST',
                 url: $form.attr('action') ,                
                 data: { 'contactForm': contactForm },
-                success: function () { },
-                error: function () { }
+                success: function (res) { },
+                error: function (err) { }
             })           
-            
+            $("form")[0].reset();
         });
 
 });
