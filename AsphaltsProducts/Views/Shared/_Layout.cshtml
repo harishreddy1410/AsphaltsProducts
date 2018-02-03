@@ -22,7 +22,10 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="shortcut icon" href="http://res.cloudinary.com/harishscdn/image/upload/v1517039748/ecom-app/favicon.ico" />
-        <link href="https://res.cloudinary.com/harishscdn/raw/upload/v1517074760/ecom-app/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" />
+        <link href="https://res.cloudinary.com/harishscdn/raw/upload/v1517642820/ecom-app/style_20180203.css" rel="stylesheet" />
+
+        <link href="~/css/customcss/style.css" rel="stylesheet" />
     </environment>
 
 </head>
@@ -58,8 +61,7 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Harish's</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <ul class="nav navbar-nav">                    
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
@@ -107,8 +109,10 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
-        <script src="https://res.cloudinary.com/harishscdn/raw/upload/v1517037390/ecom-app/customscript_ecomapp.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+        <script src="https://res.cloudinary.com/harishscdn/raw/upload/v1517643119/ecom-app/customscript_20180203.js"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
+        @*<script src="~/js/custom/customscript.js"></script>*@
 
     </environment>
     <script>

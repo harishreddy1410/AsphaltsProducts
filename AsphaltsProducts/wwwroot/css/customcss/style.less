@@ -1,7 +1,9 @@
 @colorWhite : white;
-@colorCrimson: #de0a32 ;
+@colorCrimson: #962a66;
 @colorYellow:yellow;
 @colorOrange:pink;
+@colorValidationErrorMessage:gold;
+@colorValidationSuccessMessage: lightgreen;
 body {
     background: @colorCrimson !important;
     color: @colorWhite !important;
@@ -161,4 +163,20 @@ legend {
     top: 5px;
     right: 0;
 }
-
+/*------------------------
+    Contact us form -start
+-------------------------*/
+#success_message {
+    display: none;
+}
+#contact_form{background:none;border:none;}
+.help-block{color:@colorValidationErrorMessage !important;}
+.has-error .control-label {
+    color: @colorValidationErrorMessage !important;
+}
+.has-success .control-label {
+    color: @colorValidationSuccessMessage !important;
+}
+/*------------------------
+    Contact us form -start
+-------------------------*/
