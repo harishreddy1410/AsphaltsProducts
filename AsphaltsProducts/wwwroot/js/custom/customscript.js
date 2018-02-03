@@ -116,7 +116,7 @@ function LoadFewProducts() {
 var duplicateItem = false;
 //Function will add items to cart
 function AddToCart(item, e) {    
-    if (Storage != "undefined") { 
+    if (Storage !== "undefined") { 
         var selectedProduct = {
             'ProductName': $(item).parents('.item-container').find('.panel-heading').html(),
             'ProductId': $(item).parents('.item-container').find('.carousel').attr('id')
@@ -239,7 +239,7 @@ jQuery(document).ready(function () {
             validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
-            first_name: {
+            FirstName: {
                 validators: {
                     stringLength: {
                         min: 2,
@@ -249,7 +249,7 @@ jQuery(document).ready(function () {
                     }
                 }
             },
-            last_name: {
+            LastName: {
                 validators: {
                     //stringLength: {
                     //    min: 2,
@@ -259,7 +259,7 @@ jQuery(document).ready(function () {
                     //}
                 }
             },
-            email: {
+            Email: {
                 validators: {
                     //notEmpty: {
                     //    message: 'Please supply your email address'
@@ -269,7 +269,7 @@ jQuery(document).ready(function () {
                     }
                 }
             },
-            phone: {
+            Phone: {
                 validators: {
                     //notEmpty: {
                     //    message: 'Please supply your phone number'
@@ -280,7 +280,7 @@ jQuery(document).ready(function () {
                     }
                 }
             },
-            address: {
+            Address: {
                 validators: {
                     stringLength: {
                         min: 8,
@@ -290,7 +290,7 @@ jQuery(document).ready(function () {
                     //}
                 }
             },
-            city: {
+            City: {
                 validators: {
                     stringLength: {
                         min: 4,
@@ -300,7 +300,7 @@ jQuery(document).ready(function () {
                     //}
                 }
             },
-            state: {
+            State: {
                 validators: {
                     //notEmpty: {
                     //    message: 'Please provide your state'
@@ -310,7 +310,7 @@ jQuery(document).ready(function () {
                     }
                 }
             },
-            zip: {
+            Zip: {
                 validators: {
                     //notEmpty: {
                     //    message: 'Please supply your zip code'
@@ -321,7 +321,7 @@ jQuery(document).ready(function () {
                     }
                 }
             },
-            comment: {
+            Feedback: {
                 validators: {
                     stringLength: {
                         min: 10,
@@ -345,13 +345,23 @@ jQuery(document).ready(function () {
             // Get the form instance
             var $form = $(e.target);
 
+            var contactForm = {};
+            $.each($form.serializeArray(), function (i, v) {
+                contactForm[v.name] = v.value;
+            });
+            
             // Get the BootstrapValidator instance
             var bv = $form.data('bootstrapValidator');
-
-            // Use Ajax to submit form data
-            $.post($form.attr('action'), $form.serialize(), function (result) {
-                console.log(result);
-            }, 'json');
+            
+            // Use Ajax to submit form data            
+            $.ajax({
+                type: 'POST',
+                url: $form.attr('action') ,                
+                data: { 'contactForm': contactForm },
+                success: function () { },
+                error: function () { }
+            })           
+            
         });
 
 });

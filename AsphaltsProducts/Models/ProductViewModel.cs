@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace AsphaltsProducts.Presentation.Layer.Models
+﻿namespace AsphaltsProducts.Presentation.Layer.Models
 {
     public class ProductViewModel
     {
