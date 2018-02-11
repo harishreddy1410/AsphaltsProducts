@@ -104,8 +104,8 @@ namespace AsphaltsProducts
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}",
-                    def
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                    
                     );
 
             });
