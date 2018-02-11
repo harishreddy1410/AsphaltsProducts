@@ -13,17 +13,17 @@ namespace AsphaltsProducts.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        ISessionFactory _sessionFactory;
-        public HomeController(ISessionFactory sessionFactory)
-        {
-            _sessionFactory = sessionFactory;
-        }
+        //ISessionFactory _sessionFactory;
+        //public HomeController(ISessionFactory sessionFactory)
+        //{
+        //    _sessionFactory = sessionFactory;
+        //}
         public IActionResult Index()
         {
             try
             {
-                _sessionFactory.Set<string>(SessionKey.SESSION_ID, "Bingo");
-                var test = _sessionFactory.Get<string>(SessionKey.SESSION_ID);
+                //_sessionFactory.Set<string>(SessionKey.SESSION_ID, "Bingo");
+                //var test = _sessionFactory.Get<string>(SessionKey.SESSION_ID);
                 return View();
             }
             catch (Exception ex)
