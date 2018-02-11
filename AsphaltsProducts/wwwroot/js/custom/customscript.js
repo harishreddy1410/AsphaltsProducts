@@ -203,7 +203,7 @@ function GetCartItems() {
 }
 
 
-window.onload = ShowNumberOfCartItemsAdded(), CalculateMyExperience(), LoadFewProducts(), GetCartItems();
+window.onload = ShowNumberOfCartItemsAdded(), CalculateMyExperience(), LoadFewProducts()/*, GetCartItems()*/;
 window.onloadstart = ShowLoadingIcon();
 
 //Track items added to cart by client 
