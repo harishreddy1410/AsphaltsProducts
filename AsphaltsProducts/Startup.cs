@@ -30,11 +30,11 @@ namespace AsphaltsProducts
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AsphaltsDbContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<ApplicationUser, ApplicationUserRole>()
-                .AddEntityFrameworkStores<AsphaltsDbContext>()
-                .AddDefaultTokenProviders();
+            //services.AddDbContext<AsphaltsDbContext>(
+            //    options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddIdentity<ApplicationUser, ApplicationUserRole>()
+            //    .AddEntityFrameworkStores<AsphaltsDbContext>()
+            //    .AddDefaultTokenProviders();
 
             services.AddScoped<IAsphaltsDbContext, AsphaltsDbContext>();
             services.AddScoped<IProductService, ProductService>();

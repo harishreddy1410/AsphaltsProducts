@@ -20,22 +20,22 @@ namespace AsphaltsProducts
             
            var host = BuildWebHost(args);
 
-            using(var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                try
-                {
-                    var dbContext = services.GetRequiredService<AsphaltsDbContext>();
-                    DbInitializer.Initialize(dbContext);
+            //using(var scope = host.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    try
+            //    {
+            //        var dbContext = services.GetRequiredService<AsphaltsDbContext>();
+            //        DbInitializer.Initialize(dbContext);
 
-                }
-                catch (Exception ex)
-                {
+            //    }
+            //    catch (Exception ex)
+            //    {
 
-                    throw;
-                }
-            }
-            host.Run();
+            //        throw;
+            //    }
+            //}
+                host.Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
