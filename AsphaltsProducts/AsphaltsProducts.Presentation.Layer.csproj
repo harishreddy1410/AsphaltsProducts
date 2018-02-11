@@ -10,6 +10,7 @@
     <None Remove="Properties\PublishProfiles\AsphaltsProductsPresentationLayer20180126094910 - Web Deploy.pubxml" />
     <None Remove="Properties\PublishProfiles\ecom-app - Web Deploy.pubxml" />
     <None Remove="Properties\PublishProfiles\harishs-ecom-app - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\testst123 - Web Deploy.pubxml" />
   </ItemGroup>
 
   <ItemGroup>

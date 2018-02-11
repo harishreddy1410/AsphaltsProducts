@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using AsphaltsProducts.Presentation.Layer.Models;
 using AsphaltsProducts.Service.Layer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace AsphaltsProducts.Presentation.Layer.Controllers
 {
     [Route("about")]
+    [AllowAnonymous]
     public class AboutController : Controller
     {
         IServiceProvider _serviceProvider;

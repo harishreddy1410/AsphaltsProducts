@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AsphaltsProducts.Models;
 using AsphaltsProducts.Presentation.Layer.Helpers.Session;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AsphaltsProducts.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         ISessionFactory _sessionFactory;
