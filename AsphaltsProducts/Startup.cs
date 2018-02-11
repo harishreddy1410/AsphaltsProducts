@@ -36,8 +36,8 @@ namespace AsphaltsProducts
             //    .AddEntityFrameworkStores<AsphaltsDbContext>()
             //    .AddDefaultTokenProviders();
 
-            services.AddScoped<IAsphaltsDbContext, AsphaltsDbContext>();
-            services.AddScoped<IProductService, ProductService>();
+            //services.AddScoped<IAsphaltsDbContext, AsphaltsDbContext>();
+            //services.AddScoped<IProductService, ProductService>();
             services.AddTransient<ISessionFactory,SessionFactory>();
             services.AddTransient<IEmailService, EmailService>();
             var config = new MapperConfiguration(c => {
