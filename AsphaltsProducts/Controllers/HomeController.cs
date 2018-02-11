@@ -11,9 +11,6 @@ using Microsoft.AspNetCore.Authorization;
 namespace AsphaltsProducts.Controllers
 {
     [AllowAnonymous]
-    [Route("Home")]
-    [Route("\\")]
-    [Route("")]
     public class HomeController : Controller
     {
         ISessionFactory _sessionFactory;
@@ -21,9 +18,6 @@ namespace AsphaltsProducts.Controllers
         {
             _sessionFactory = sessionFactory;
         }
-
-        [Route("Index")]
-        [Route("index")]
         public IActionResult Index()
         {
             try
@@ -37,15 +31,13 @@ namespace AsphaltsProducts.Controllers
                 throw;
             }           
         }
-        [Route("About")]
-        [Route("about")]
+       
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
             return View();
         }
-        [Route("Contact")]
-        [Route("contact")]
+        
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
